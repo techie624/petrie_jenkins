@@ -1,0 +1,42 @@
+workspace/
+
+.cache/
+.config/
+.m2/
+.ivy2/
+.java/
+.sbt/
+.ssh/
+.emacs.d/
+logs/
+nodes/
+.gitconfig
+.viminfo
+.bash_history
+log
+*.log
+*.tmp
+*.old
+*.bak
+# *.jar
+*.swp
+.bash_history
+
+# Only get the config.xml from any Jobs directory
+jobs/**/builds
+jobs/**/modules
+jobs/**/htmlreports
+jobs/**/last*
+jobs/**/next*
+jobs/**/*.csv
+jobs/**/*.txt
+jobs/**/*.log
+jobs/**/workspace
+jobs/**/modules
+jobs/**/nextBuildNumber
+
+# users/
+# !users/users.xml
+# !users/gadm_6545244030413002944
+# !users/rlp243_3069924457801241808
+# !users/vg249_4920155170897742146
