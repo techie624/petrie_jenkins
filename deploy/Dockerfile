@@ -6,7 +6,7 @@ from jenkins/jenkins:latest
 USER root
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
-# vars
+# vars set
 
 ARG GID=local
 ENV GID ${GID}
