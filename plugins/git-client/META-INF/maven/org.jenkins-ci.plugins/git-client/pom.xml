@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>git-client</artifactId>
-  <version>3.10.0</version>
+  <version>3.11.2</version>
   <packaging>hpi</packaging>
   <name>Jenkins Git client plugin</name>
   <description>Utility plugin for Git support in Jenkins</description>
@@ -45,7 +45,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/git-client-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/git-client-plugin.git</developerConnection>
-    <tag>git-client-3.10.0</tag>
+    <tag>git-client-3.11.2</tag>
     <url>https://github.com/jenkinsci/git-client-plugin</url>
   </scm>
   <distributionManagement>
@@ -190,14 +190,8 @@
     <dependency>
       <groupId>com.github.spotbugs</groupId>
       <artifactId>spotbugs-annotations</artifactId>
-      <version>4.4.1</version>
+      <version>4.5.2</version>
       <scope>compile</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>com.google.code.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-      </exclusions>
       <optional>true</optional>
     </dependency>
     <dependency>
@@ -209,7 +203,7 @@
     <dependency>
       <groupId>io.jenkins</groupId>
       <artifactId>configuration-as-code</artifactId>
-      <version>1.52</version>
+      <version>1.54</version>
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
@@ -218,6 +212,12 @@
       <artifactId>jenkins-core</artifactId>
       <version>2.289.1</version>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -248,7 +248,7 @@
     <dependency>
       <groupId>org.kohsuke</groupId>
       <artifactId>access-modifier-annotation</artifactId>
-      <version>1.24</version>
+      <version>1.21</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -256,6 +256,7 @@
           <artifactId>annotation-indexer</artifactId>
         </exclusion>
       </exclusions>
+      <optional>true</optional>
     </dependency>
   </dependencies>
   <repositories>
@@ -274,7 +275,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.18</version>
+        <version>3.22</version>
         <extensions>true</extensions>
       </plugin>
       <plugin>

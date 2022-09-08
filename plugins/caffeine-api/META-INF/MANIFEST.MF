@@ -1,24 +1,21 @@
 Manifest-Version: 1.0
-Archiver-Version: Plexus Archiver
-Created-By: Apache Maven
-Built-By: runner
-Build-Jdk: 1.8.0_292
-Extension-Name: caffeine-api
-Specification-Title: Jenkins plugin that packages Caffeine for use by 
- other plugins.
-Implementation-Title: caffeine-api
-Implementation-Version: 2.9.2-29.v717aac953ff3
-Group-Id: io.jenkins.plugins
-Short-Name: caffeine-api
+Hudson-Version: 2.289.1
+Implementation-Title: Caffeine API Plugin
 Long-Name: Caffeine API Plugin
-Url: https://github.com/jenkinsci/caffeine-api-plugin
+Implementation-Version: 2.9.3-65.v6a_47d0f4d1fe
+Group-Id: io.jenkins.plugins
 Minimum-Java-Version: 1.8
-Plugin-Version: 2.9.2-29.v717aac953ff3
-Hudson-Version: 2.222.1
-Jenkins-Version: 2.222.1
-Plugin-Developers: 
 Support-Dynamic-Loading: true
 Plugin-License-Name: Apache License v2
-Plugin-License-Url: https://www.apache.org/licenses/LICENSE-2.0.txt
+Specification-Title: Caffeine API Plugin
 Plugin-ScmUrl: https://github.com/jenkinsci/caffeine-api-plugin/
+Plugin-Version: 2.9.3-65.v6a_47d0f4d1fe
+Jenkins-Version: 2.289.1
+Url: https://github.com/jenkinsci/caffeine-api-plugin
+Short-Name: caffeine-api
+Plugin-License-Url: https://www.apache.org/licenses/LICENSE-2.0.txt
+Plugin-Developers: 
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.5.2
+Specification-Version: 2.9
 

@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.modules</groupId>
   <artifactId>sshd</artifactId>
-  <version>3.1.0</version>
+  <version>3.249.v2dc2ea_416e33</version>
   <packaging>hpi</packaging>
   <name>SSH server</name>
   <description>Adds SSH server functionality to Jenkins, exposing CLI commands through it</description>
@@ -16,9 +16,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git://github.com/jenkinsci/sshd-plugin.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/jenkinsci/sshd-plugin.git</developerConnection>
-    <tag>sshd-3.1.0</tag>
+    <connection>scm:git:https://github.com/jenkinsci/sshd-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/sshd-plugin.git</developerConnection>
+    <tag>2dc2ea416e3300ad210e3943b471204d562e6d18</tag>
     <url>https://github.com/jenkinsci/sshd-plugin</url>
   </scm>
   <distributionManagement>
@@ -33,9 +33,9 @@
   </distributionManagement>
   <dependencies>
     <dependency>
-      <groupId>org.apache.sshd</groupId>
-      <artifactId>sshd-core</artifactId>
-      <version>2.7.0</version>
+      <groupId>io.jenkins.plugins.mina-sshd-api</groupId>
+      <artifactId>mina-sshd-api-core</artifactId>
+      <version>2.8.0-36.v8e25ce90d4b_1</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -47,27 +47,26 @@
     <dependency>
       <groupId>org.jenkins-ci.modules</groupId>
       <artifactId>instance-identity</artifactId>
-      <version>2.2</version>
+      <version>116.vf8f487400980</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>jenkins-core</artifactId>
-      <version>2.289.1</version>
+      <version>2.357</version>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.github.spotbugs</groupId>
-      <artifactId>spotbugs-annotations</artifactId>
-      <version>4.2.0</version>
-      <scope>provided</scope>
-      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>net.jcip</groupId>
@@ -79,7 +78,7 @@
     <dependency>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>animal-sniffer-annotations</artifactId>
-      <version>1.19</version>
+      <version>1.21</version>
       <scope>provided</scope>
       <optional>true</optional>
     </dependency>
@@ -88,18 +87,6 @@
       <artifactId>commons-logging</artifactId>
       <version>1.2</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.kohsuke</groupId>
-      <artifactId>access-modifier-annotation</artifactId>
-      <version>1.21</version>
-      <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>annotation-indexer</artifactId>
-          <groupId>org.jenkins-ci</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
   </dependencies>
   <repositories>
@@ -113,7 +100,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.15</version>
+        <version>3.29</version>
         <extensions>true</extensions>
       </plugin>
       <plugin>

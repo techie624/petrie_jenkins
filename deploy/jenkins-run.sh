@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
-#@author: RLPetrie (roy.petrie@nedap.com)
+#@author: rpetrie (techie624@gmail.com)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
@@ -19,7 +19,12 @@ echo;
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 # Remove any jenkins/jenkins:latest images
 
-docker rmi -f jenkins/jenkins:latest || true;
+docker rm -f jenkins-node
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+# Remove images (this will fail if running container is using an image)
+
+docker rmi $(docker images -a -q) || true;
 echo;
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
@@ -31,7 +36,7 @@ time docker image build --build-arg GID=$GID -t $DOCKER_HUB_USERNAME/$DOCKER_HUB
 echo;
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
-# Remove any jenkins/jenkins:latest images
+# Remove any jenkins/jenkins:latest images used for build
 
 docker rmi -f jenkins/jenkins:latest || true;
 echo;
@@ -49,6 +54,7 @@ docker run -dti \
 --name jenkins-node \
 -h jenkins-node \
 -v $pwd:/var/jenkins_home \
+-v ~/.ssh:/var/jenkins_home/.ssh \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -p $JENKINS_EXT_PORT:8080 \
 --restart=always \
