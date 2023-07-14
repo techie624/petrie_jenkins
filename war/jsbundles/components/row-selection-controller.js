@@ -8,23 +8,20 @@ rowSelectionControllers.forEach(headerCheckbox => {
   const moreOptionsDropdown = table.querySelector(".jenkins-table__checkbox-dropdown");
   const moreOptionsAllButton = table.querySelector("[data-select='all']");
   const moreOptionsNoneButton = table.querySelector("[data-select='none']");
-
   if (tableCheckboxes.length === 0) {
     headerCheckbox.disabled = true;
-
     if (moreOptionsButton) {
       moreOptionsButton.disabled = true;
     }
   }
-
   const allCheckboxesSelected = () => {
-    return tableCheckboxes.length === [...tableCheckboxes].filter(e => e.checked).length;
+    const selectedCheckboxes = Array.from(tableCheckboxes).filter(e => e.checked);
+    return tableCheckboxes.length === selectedCheckboxes.length;
   };
-
   const anyCheckboxesSelected = () => {
-    return [...tableCheckboxes].filter(e => e.checked).length > 0;
+    const selectedCheckboxes = Array.from(tableCheckboxes).filter(e => e.checked);
+    return selectedCheckboxes.length > 0;
   };
-
   tableCheckboxes.forEach(checkbox => {
     checkbox.addEventListener("change", () => {
       updateIcon();
@@ -35,40 +32,45 @@ rowSelectionControllers.forEach(headerCheckbox => {
     tableCheckboxes.forEach(e => e.checked = newValue);
     updateIcon();
   });
-  moreOptionsAllButton === null || moreOptionsAllButton === void 0 ? void 0 : moreOptionsAllButton.addEventListener("click", () => {
-    tableCheckboxes.forEach(e => e.checked = true);
-    updateIcon();
-  });
-  moreOptionsNoneButton === null || moreOptionsNoneButton === void 0 ? void 0 : moreOptionsNoneButton.addEventListener("click", () => {
-    tableCheckboxes.forEach(e => e.checked = false);
-    updateIcon();
-  });
-
+  if (moreOptionsAllButton !== null) {
+    moreOptionsAllButton.addEventListener("click", () => {
+      tableCheckboxes.forEach(e => e.checked = true);
+      updateIcon();
+    });
+  }
+  if (moreOptionsNoneButton !== null) {
+    moreOptionsNoneButton.addEventListener("click", () => {
+      tableCheckboxes.forEach(e => e.checked = false);
+      updateIcon();
+    });
+  }
   function updateIcon() {
     headerCheckbox.classList.remove("jenkins-table__checkbox--all");
     headerCheckbox.classList.remove("jenkins-table__checkbox--indeterminate");
-    moreOptionsDropdown === null || moreOptionsDropdown === void 0 ? void 0 : moreOptionsDropdown.classList.remove("jenkins-table__checkbox-dropdown--visible");
-
+    if (moreOptionsDropdown !== null) {
+      moreOptionsDropdown.classList.remove("jenkins-table__checkbox-dropdown--visible");
+    }
     if (allCheckboxesSelected()) {
       headerCheckbox.classList.add("jenkins-table__checkbox--all");
       return;
     }
-
     if (anyCheckboxesSelected()) {
       headerCheckbox.classList.add("jenkins-table__checkbox--indeterminate");
     }
   }
-
   document.addEventListener("click", event => {
-    if (moreOptionsDropdown !== null && moreOptionsDropdown !== void 0 && moreOptionsDropdown.contains(event.target) || event.target === moreOptionsButton) {
-      return;
+    if (moreOptionsDropdown !== null) {
+      if (moreOptionsDropdown.contains(event.target) || event.target === moreOptionsButton) {
+        return;
+      }
+      moreOptionsDropdown.classList.remove("jenkins-table__checkbox-dropdown--visible");
     }
-
-    moreOptionsDropdown === null || moreOptionsDropdown === void 0 ? void 0 : moreOptionsDropdown.classList.remove("jenkins-table__checkbox-dropdown--visible");
   });
-  moreOptionsButton === null || moreOptionsButton === void 0 ? void 0 : moreOptionsButton.addEventListener("click", () => {
-    moreOptionsDropdown.classList.toggle("jenkins-table__checkbox-dropdown--visible");
-  });
+  if (moreOptionsButton !== null) {
+    moreOptionsButton.addEventListener("click", () => {
+      moreOptionsDropdown.classList.toggle("jenkins-table__checkbox-dropdown--visible");
+    });
+  }
   window.updateTableHeaderCheckbox = updateIcon;
 });
 /******/ })()

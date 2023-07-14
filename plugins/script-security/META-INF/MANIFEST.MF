@@ -1,21 +1,26 @@
 Manifest-Version: 1.0
-Hudson-Version: 2.332.1
-Plugin-Dependencies: caffeine-api:2.9.2-29.v717aac953ff3
-Implementation-Title: Script Security Plugin
-Long-Name: Script Security Plugin
-Implementation-Version: 1175.v4b_d517d6db_f0
-Group-Id: org.jenkins-ci.plugins
-Minimum-Java-Version: 1.8
-Plugin-License-Name: MIT License
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 11
 Specification-Title: Script Security Plugin
-Plugin-ScmUrl: https://github.com/jenkinsci/script-security-plugin
-Plugin-Version: 1175.v4b_d517d6db_f0
-Jenkins-Version: 2.332.1
-Url: https://github.com/jenkinsci/script-security-plugin
-Short-Name: script-security
-Plugin-License-Url: https://opensource.org/licenses/MIT
-Plugin-Developers: 
-Build-Jdk-Spec: 1.8
-Created-By: Maven Archiver 3.5.2
 Specification-Version: 0.0
+Implementation-Title: Script Security Plugin
+Implementation-Version: 1251.vfe552ed55f8d
+Group-Id: org.jenkins-ci.plugins
+Artifact-Id: script-security
+Short-Name: script-security
+Long-Name: Script Security Plugin
+Url: https://github.com/jenkinsci/script-security-plugin
+Plugin-Version: 1251.vfe552ed55f8d
+Hudson-Version: 2.361.4
+Jenkins-Version: 2.361.4
+Plugin-Dependencies: caffeine-api:2.9.3-65.v6a_47d0f4d1fe
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/script-securi
+ ty-plugin.git
+Plugin-ScmTag: fe552ed55f8d72c3149cd49223ecfacee7e77be0
+Plugin-ScmUrl: https://github.com/jenkinsci/script-security-plugin
+Plugin-GitHash: fe552ed55f8d72c3149cd49223ecfacee7e77be0
+Implementation-Build: fe552ed55f8d72c3149cd49223ecfacee7e77be0
 
